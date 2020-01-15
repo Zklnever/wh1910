@@ -1,4 +1,5 @@
 //app.js
+// App()  用来注册一个小程序
 App({
   onLaunch: function () {
     // 展示本地存储能力

@@ -1,13 +1,20 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+// 使用 Page() 构造器注册页面 ，指定页面的初始数据、生命周期回调、事件处理函数
 Page({
   data: {
-    motto: 'Hello World',
+    motto: 'Hello World - 1910',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    word:"wuhan1910-daydayup",
+    message:"Are you OK"
+  },
+  gotoHome(){
+    wx.navigateTo({
+      url: '../home/home?id=1234',
+    })
   },
   //事件处理函数
   bindViewTap: function() {
