@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-const app = getApp()
+const app = getApp()  //  获取到小程序全局唯一的 App 实例
 // 使用 Page() 构造器注册页面 ，指定页面的初始数据、生命周期回调、事件处理函数
 Page({
   data: {
@@ -9,18 +9,29 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     word:"wuhan1910-daydayup",
-    message:"Are you OK"
+    message:"Are you OK",
+    token:app.globalData.token
+  },
+  changeToken(){
+    this.setData({
+      token:"todoMobile-daydayup"
+    })
   },
   gotoHome(){
-    wx.navigateTo({
-      url: '../home/home?id=1234',
+    // wx.navigateTo({
+    //   url: '../home/home?id=1234',
+    // })
+    wx.switchTab({
+      url: '../home/home'
     })
+
   },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
     })
+    
   },
   onLoad: function () {
     if (app.globalData.userInfo) {

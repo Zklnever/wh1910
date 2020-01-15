@@ -3,7 +3,7 @@
   <text> home - home- 主页 </text>
 </view>
 <view>
-  <view>count == {{count}} </view>
+  <view bindtap="changeCount">count == {{count}} </view>
   <view wx:for="{{list}}" wx:key="{{index}}" >
       <view>{{item}} </view>
   </view>
@@ -14,4 +14,60 @@
     马上过年了,我要把小程序上线了...  
   </view>
   <button type="warn"  bindtap="changeFlag"  size="mini" >点击修改</button>
+  <view data-word="{{word}}" data-id="1910" >  {{word}} </view> 
+  <view> <input type="text" value="{{word}}" data-ids="some" bindinput="getWord" /> </view>
+   <view> <switch data-checked="{{toggle}}" checked="{{toggle}}" bindchange="changeToggle" > </switch> </view>
+  <view wx:if="{{toggle}}">  <image src="{{imgUrl}}"> </image> </view>
+  <view> {{ toggle ?'今年回家我要好好写三个真实项目':'今年我go die '}} </view>
+  <view> {{ '铁臂 '  + lastName }}</view>
+  <view wx:if="{{!toggle}}">
+    <view wx:for="{{num}}" wx:for-item="i" wx:for-index="idi" wx:key="idi"> 
+        <view wx:for="{{num}}" wx:for-item="j" wx:for-index="idj" wx:key="idj" >
+            <view wx:if="{{i<=j}}">
+               {{i}} * {{j}} = {{i*j}}
+            </view>
+        </view>
+    </view>
+  </view>
+  <view wx:if="{{carList.length>0}}">
+    <view> 你马上结算 。。。。。</view>
+  </view>
+  <view wx:else>
+      <view>空空如也 - 推荐购买</view>
+  </view>
+  <block wx:if="{{true}}">
+    <view> view1 </view>
+    <view> view2  </view>
+  </block>
+   <view hidden="{{toggle}}">
+    <view> view1  wx:if 显示隐藏 渲染和不渲染的区别 </view>
+    <view> view2  hidden 显示隐藏 样式的 显示隐藏 </view>
+  </view>
+  <view id="tapTest" data-hi="WeChat" data-word="{{word}}" bindtap="tapName"> Click me! </view>
+  <view bindtap="parentAction">
+    <view >事件类型  - 冒泡 & 非冒泡 </view>
+    <view class="tred" bindtap="childbind">
+      冒泡事件：当一个组件上的事件被触发后，该事件会向父节点传递。
+      非冒泡事件：当一个组件上的事件被触发后，该事件不会向父节点传递。
+    </view>
+    <view class="ts" catchtap="childCatch">
+      catch 来绑定事件  -   catch 会阻止事件向上冒泡 
+      bind 不同  -  bind 不会阻止事件向上冒泡
+    </view>
+
+  </view>
+
+  <view class="box">测试 rpx 200 </view>
+
+  <template name="msgItem">
+    <view>
+       <view>msgItem - msg </view>
+      <text> {{index}}: {{msg}} </text>
+      <text> Time: {{time}} </text>
+    </view>
+  </template>
+
+  <template is="msgItem" data="{{ ...item  }}" />
+  <import src="/tpls/like.wxml"/>
+  <template is="like"  data="{{ ...likeData }}"/>
 </view>

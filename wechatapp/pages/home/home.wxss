@@ -1,1 +1,17 @@
 /* pages/home/home.wxss */
+
+.tred{
+    color:red;
+    font-size:28px;
+}
+
+.ts{
+    color: blueviolet;
+    font-size: 24px;
+}
+
+.box{
+    background: darkgreen;
+    width:200rpx;
+    height:200rpx;
+}
