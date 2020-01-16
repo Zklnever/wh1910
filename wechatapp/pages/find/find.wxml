@@ -1,2 +1,14 @@
 <!--pages/find/find.wxml-->
-<text>pages/find/find.wxml</text>
+<view wx:if="{{!flag}}">
+    <progress 
+        percent="{{current}}" 
+        stroke-width="10" 
+        color="deeppink" 
+        show-info
+        
+    ></progress>
+</view>
+
+<view wx:else>
+    <view>发现生活的美 -- beautiful  </view>
+</view>

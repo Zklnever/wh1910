@@ -69,5 +69,14 @@
 
   <template is="msgItem" data="{{ ...item  }}" />
   <import src="/tpls/like.wxml"/>
-  <template is="like"  data="{{ ...likeData }}"/>
+  <template is="like"  data="{{ ...likeData }}"  />
+  <import src="/tpls/actionsheet.wxml"/>
+  <template is="actionsheet"  data="{{ ...actionsheetData }}"  />
+  <import src="/tpls/login.wxml"/>
+   <template is="login"  data="{{ ...loginData }}"  />
+  <button type="primary" bindtap="openActionSheet">打开 官方的 actionsheet </button>
+  <button type="primary" bindtap="showSome">打开 官方的 modal  </button>
+   <button type="warn" bindtap="openaction">打开 自己的 actionsheet  </button>
+
+  
 </view>

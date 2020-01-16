@@ -1,18 +1,45 @@
 // pages/find/find.js
+var timer = null;
+var  {http} = require("../../utils/index.js");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+      flag:false,
+      current:0,
+      mv:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    timer = setInterval(()=>{
+        if(this.data.current<100){
+          this.setData({
+            current:++this.data.current
+          })
+        }else{
+          clearInterval(timer);
+          this.setData({
+            flag:true,
+          })
+          this.getMvData();
+        }
+    },30)
+  },
 
+  getMvData(){
+    http({
+      url:"/vue/maizuo/mv",
+      success:res=>{
+          this.setData({
+              mv:res.data.result
+          })
+      }
+    })
   },
 
   /**
